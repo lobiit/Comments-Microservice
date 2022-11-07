@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
+from .views import CommentAPIView, PostCommentAPIView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('posts/<str:pk>/comments', PostCommentAPIView.as_view()),
+    path('comments', CommentAPIView.as_view())
 ]
