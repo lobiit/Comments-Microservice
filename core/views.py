@@ -6,7 +6,7 @@ from core.models import Comment
 from core.serializers import CommentSerializer
 
 
-def PostCommentAPIView(APIView):
+class PostCommentAPIView(APIView):
     def get(self, _, pk=None):
         comments = Comment.objects.filter(post_id=pk)
         serializer = CommentSerializer(comments, many=True)
